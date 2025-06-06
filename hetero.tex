@@ -1,0 +1,65 @@
+\subsubsection*{Forecast Errors in Analyst Earnings Predictions by Firm Characteristics}
+Forecasting errors—measured by Standardized Unexpected Earnings (SUE) or earnings surprises—often exhibit heteroskedasticity driven by firm-level factors such as size, industry complexity, or analyst coverage. The SUE is calculated as:
+
+\begin{equation}
+SUE_{i,t} = \frac{\text{Actual EPS}_{i,t} - \text{Analysts' estimate consensus EPS}_{i,t}}{\sigma_{\text{Analysts' estimate consensus EPS}_{i,t}}}
+\end{equation}
+
+where $EPS_{i,t}$ is the actual earnings per share for firm $i$ at time $t$ and $\sigma_{i,t}$ is the standard deviation of earnings estimates if such estimates are posted by $x$ analysts; Similarly, 
+
+\begin{equation}
+Earnings Surprise_{i,t} = \frac{\text{Actual EPS}_{i,t} - \text{Analysts' estimate consensus EPS}_{i,t}}{|\text{Analysts' estimate consensus EPS}_{i,t}|}
+\end{equation}
+
+I have run some statistical regression that suggests large firms have systematically higher and more predictable SUE, earnings surprise than smaller firms, indicating that the variance in forecast accuracy is not random and might have some systematic patterns that are conditioned on observable firm traits, which could be categorized into size, valuation, industry complexity, and analyst coverage. 
+
+Heteroskedastic modelling could uncover structured patterns in predictability across the cross-section of firms.
+
+
+\subsubsection*{Heteroskedasticity in PEAD by Firm Characteristics}
+
+Post-Earnings Announcement Drift (PEAD) refers to the well-documented phenomenon where stock prices continue to drift in the direction of earnings surprises after the announcement, rather than adjusting immediately. While most studies focus on the average drift conditional on the sign or magnitude of the earnings surprise, far less attention has been paid to the cross-sectional variance in the drift, which may also be systematic.
+
+I venture to suggest that the magnitude and variability of post-earnings returns differ across firm types. For example, there has been researches suggesting that smaller firms often exhibit more volatile drifts. But I think more can be done to tell what factors might have influence on the magnitude of PEAD that is not already subsumed by size, for example, maybe we could check earnings quality, recent price momentum and institutional ownership.
+
+Let $CAR_{i,t+1:t+k}$ denote the cumulative abnormal return for firm $i$ in the $k$-day window following earnings announcement at time $t$, and let $SUE_{i,t}$ be the standardized unexpected earnings. Then we can model the conditional expectation and conditional variance of the drift as:
+
+\begin{equation}
+CAR_{i,t+1:t+k} = \alpha + \beta \cdot SUE_{i,t} + \varepsilon_{i,t}, \quad \text{with } \varepsilon_{i,t} \sim N(0, \sigma_{i,t}^2)
+\end{equation}
+
+and
+
+\begin{equation}
+\log(\sigma_{i,t}^2) = \gamma_0 + \gamma_1 \cdot \log(\text{MarketCap}_{i,t}) + \gamma_2 \cdot \text{Illiquidity}_{i,t} + \gamma_3 \cdot \text{Coverage}_{i,t} + \ldots
+\end{equation}
+
+This heteroskedastic structure allows us to test whether the predictability of PEAD itself varies systematically across firms. 
+
+\subsubsection*{Heteroskedasticity in Crypto Volatility Forecast Errors Under Public Sentiment and Price Anchors}
+
+In cryptocurrency markets, volatility forecasts are often inaccurate, especially for smaller or speculative tokens. Unlike traditional assets, crypto volatility is not only influenced by liquidity or fundamentals but is also highly sensitive to public sentiment, social media narratives, and even commentary by influential individuals such as Elon Musk or Donald Trump. Additionally, investor behavior appears to differ based on the notional price of the coin itself—tokens with very low price-per-unit levels often attract retail traders who exhibit more volatile trading patterns.
+
+These features suggest that forecast errors in crypto volatility models may be heteroskedastic, with the variance of these errors conditioned on external sentiment variables and price-level effects.
+
+Let the volatility forecast error for crypto asset $i$ at time $t$ be:
+
+\begin{equation}
+\text{Error}_{i,t} = \widehat{\text{Vol}}_{i,t} - \text{Realized Vol}_{i,t+k}
+\end{equation}
+
+We can then model heteroskedasticity as:
+
+\begin{equation}
+\text{Error}_{i,t} = \mu + \varepsilon_{i,t}, \quad \varepsilon_{i,t} \sim N(0, \sigma_{i,t}^2)
+\end{equation}
+
+\begin{equation}
+\log(\sigma_{i,t}^2) = \gamma_0 + \gamma_1 \cdot \text{Sentiment}_{t} + \gamma_2 \cdot \log(\text{NotionalPrice}_{i,t}) + \gamma_3 \cdot \text{InfluencerShock}_{t} + \ldots
+\end{equation}
+
+Here, $\text{Sentiment}_{t}$ can be derived from crypto Twitter indices, Reddit-based NLP scores, or Google Trends data. $\text{InfluencerShock}_{t}$ is a binary or continuous variable measuring the timing or magnitude of posts or announcements by known market movers. $\text{NotionalPrice}_{i,t}$ reflects whether investor behavior differs for low-price vs. high-price coins, even after controlling for market cap.
+The implied $Vol$ could be gotten from some crypto exchanges like Binance, or famously for derivative trading: Deribit. 
+
+Researches have been done on conditional heteroskedasticity model with GARCH and some other machine learning models. But forecast error variance as a function of sentiment or price level I beleive is not in the classic to-read literature.
+

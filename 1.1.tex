@@ -1,0 +1,35 @@
+\subsubsection*{Two-Period Setup}
+We model Julius Baer's lending relationship with Signa as a two-period lending game in a RNND environment:
+\begin{itemize}
+    \item \textbf{Period 0}: Julius Baer incurs sunk information cost $\gamma$ to underwrite and understand Signa's risk.
+    \item \textbf{Period 1}: It lends 1 unit (bridge loan).
+    \item \textbf{If Signa succeeds (with probability $p$)}: It receives follow-up funding in Period 2 (new loan of 1 unit), repaid with $R_2$.
+    \item The total expected bank cost is $1 + \gamma + p$.
+    \item The total expected repayment is $pR_1 + p^2R_2$.
+\end{itemize}
+Under competitive zero-profit equilibrium, we have:
+\begin{equation}
+    pR_1 + p^2R_2 = 1 + \gamma + p \tag{3.23 of coursebook}
+\end{equation}
+
+\subsubsection*{Outside Bank Threat at $t = 1$}
+If Signa had tried to switch to another lender at $t = 1$, the new bank would have needed to incur the information cost $\gamma$ for one period of lending, and thus:
+\begin{equation}
+    R_2 = \frac{1 + \gamma}{p} \tag{3.24 of coursebook}
+\end{equation}
+Combining these two conditions gives the equilibrium level of $R_1$:
+\begin{equation}
+    R_1 = \frac{1 + \gamma \times(1-p)}{p} < R_2 = \frac{1 + \gamma}{p}
+\end{equation}
+This creates a \textbf{lock-in effect}, where Julius Baer can extract profits from the ongoing relationship.
+
+\subsubsection*{Incentives}
+\begin{itemize}
+    \item \textbf{Julius Baer} expected to earn future income from follow-on lending, repaid via $R_2$, without needing to re-invest in due diligence. As a result, the bank is willing to take a loss in the first period. The coursebook has extensive explanations on this part.
+\end{itemize}
+
+\subsubsection*{Risks}
+\begin{itemize}
+    \item Misaligned incentives and monitoring gaps: In a two-period relationship, low initial repayments and the need to preserve future profits can discourage banks from funding positive-NPV projects.
+    \item Lock-in and excessive risk tolerance: The bank's ex-post monopoly power may lead to leniency in lending standards and an overcommitment to troubled clients. Long-term dependence can result in inefficient capital allocation and difficulty exiting relationships when risks materialize---turning relational strength into a liability.
+\end{itemize}

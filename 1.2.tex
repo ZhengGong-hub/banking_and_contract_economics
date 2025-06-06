@@ -1,0 +1,33 @@
+To enrich the two-period model, we introduce parameters of \textbf{illiquid collateral}, \textbf{information asymmetry}, and \textbf{ongoing monitoring costs}.
+\begin{enumerate}
+    \item \textbf{In period 1}, the borrower offers illiquid collateral worth $c$, which the bank recovers if the projects fails at the first period.
+    \item \textbf{In period 2}, the borrower's true success probability deteriorates from $p$ to $p' < p$. The bank can learn this only by paying a monitoring cost $m$.
+    \item \textbf{If the bank does not monitor}, it mistakenly prices the second-period loan as if the probability remains $p$, and expects repayment:
+\end{enumerate}
+\begin{equation*}
+    pR_1 + (1 - p)c + p^2 R_2 + p(1 - p)c = 1 + \gamma + p \\
+\end{equation*}
+\begin{equation*}
+    pR_2 + (1 - p)c= 1 + \gamma
+\end{equation*}
+
+As in classical RNND model, we derive:
+\begin{equation*}
+    R_2 = \frac{1 + \gamma - (1 - p)c}{p}
+\end{equation*}
+However, the \textbf{actual expected repayment} based on true probability $p'$ and collapsed collateral ($c' = 0$) is:
+\begin{equation*}
+    p' R_2 + (1 - p')\times 0 = p' R_2 < p R_2 + (1 - p)c = 1 + \gamma
+\end{equation*}
+This implies that the bank suffers a \textbf{hidden expected loss}:
+\begin{equation*}
+    L = p R_2 + (1 - p)c - p' R_2 = 1 + \gamma - p' R_2
+\end{equation*}
+The bank can avoid this expected loss by monitoring at cost $m$. In equilibrium, we would have $L > m$. If we know in addition that this bad scenario happens at probability $p_{bad}$, $m = L p_{bad}$.
+If we know that the bank monitors, 
+adding the monitoring cost $m$ will unavoidably increase the demand of $R_2$, leading to a higher $R_2'$.
+
+\subsubsection*{Application to Julius Baer and Signa}
+\textbf{Information asymmetry:} Signa was a highly complex and opaque conglomerate, making it difficult to assess the true risk. The asymmetry happens that Julius Baer knows less than the borrower about the credibility of the borrower.  The demanding of collaterals and spending effort monitoring are both ways to reduce or protect against the asymmetry. \\
+\textbf{Monitoring costs:} Effective relationship lending requires not only upfront screening ($\gamma$) but ongoing updates ($m$). Julius Baer's continued exposure indicates that it failed to respond to the information. The result aligns with the model: hidden expected losses emerged from relying on stale information $(p)$ while avoiding spending $m$ to acquire $p'$.\\
+\textbf{Collateral:} The loans were secured by \emph{illiquid shares}, not tangible and easy-to-sell assets. According to the model, such collateral lower the demand of $R_2$. But in fire-sell like  in period 2 when borrower risk worsens, this kind of bad collateral could not provide proper recovery buffer. Without proper counting in the risk of collateral losing values, it jeopardizes the banking business by not earning as much returns when the loan is succesful and not able to recoup when the loan goes under.
